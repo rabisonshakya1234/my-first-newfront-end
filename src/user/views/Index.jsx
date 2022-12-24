@@ -21,7 +21,7 @@ function Index() {
   const delData = async(id) => {
     try{
         const res = await axios.delete(`http://localhost:5000/api/user/${id}`)
-        setUsers(res.data);
+        setUsers(users.filter((user) => user._id !== id));
         console.log(res.data);
     }catch(err){
         console.log(err);
